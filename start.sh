@@ -8,7 +8,7 @@ case "$uname" in
     (*) echo 'error: unsupported platform.'; exit 2; ;;
 esac;
 
-$installCMD install -y tmux vim
+$installCMD install -y tmux vim zsh
 
 ### Config Vim
 echo "Config Vim ..."
@@ -23,4 +23,6 @@ echo "Config Tmux ..."
 cp tmux/.tmux.conf ~/
 tmux source-file ~/.tmux.conf
 
+### Config On-my-zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
