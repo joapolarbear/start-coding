@@ -8,7 +8,7 @@ case "$uname" in
     (*) echo 'error: unsupported platform.'; exit 2; ;;
 esac;
 
-$installCMD install -y tmux vim zsh
+$installCMD update && $installCMD install -y tmux zsh vim-gtk
 
 ### Config Vim
 echo "Config Vim ..."
