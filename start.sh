@@ -8,7 +8,13 @@ case "$uname" in
     (*) echo 'error: unsupported platform.'; exit 2; ;;
 esac;
 
-$installCMD update && $installCMD install -y tmux zsh vim-gtk
+usrname=$(whoami)
+if [ $usrname != "root" ]; then
+    sudo_prefix="sudo"
+else
+    sudo_prefix=""
+fi
+$sudo_prefix $installCMD update && $sudo_prefix $installCMD install -y tmux zsh vim-gtk
 
 ### Config Vim
 echo "Config Vim ..."
