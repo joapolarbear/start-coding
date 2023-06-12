@@ -14,7 +14,7 @@ if [ $usrname != "root" ]; then
 else
     sudo_prefix=""
 fi
-$sudo_prefix $installCMD update && $sudo_prefix $installCMD install -y tmux zsh vim-gtk
+$sudo_prefix $installCMD update && $sudo_prefix $installCMD install -y vim git wget tmux zsh vim-gtk
 
 ### Config Vim
 echo "Config Vim ..."
