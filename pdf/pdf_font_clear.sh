@@ -1,5 +1,6 @@
 #!/bin/bash
-# Usage: bash pdf_fond_clear.sh <dirctory>
+# Usage: bash pdf_font_clear.sh <dirctory>
+# Refer to: https://blog.leiy.me/post/ensure-pdf-fonts-are-embedded/
 
 DIRECTORY=$1
 
