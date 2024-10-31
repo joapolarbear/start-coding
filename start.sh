@@ -19,7 +19,8 @@ $sudo_prefix $installCMD update && $sudo_prefix $installCMD install -y vim git w
 ### Config Vim
 echo "Config Vim ..."
 if [ ! -d "~/.vim_runtime" ]; then
-    git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+    # git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+    cp -r 3rdparty/vimrc ~/.vim_runtime
 fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp vim/my_configs.vim ~/.vim_runtime/
