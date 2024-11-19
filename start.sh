@@ -36,7 +36,7 @@ cp tmux/.tmux.conf ~/
 tmux source-file ~/.tmux.conf
 
 ### Config On-my-zsh
-print_blue "Config On-my-zsh"
+PROMPT "Config On-my-zsh"
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 ### Using 'rm -rf' safely
