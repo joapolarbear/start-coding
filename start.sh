@@ -8,9 +8,9 @@ case "$uname" in
     (*) echo 'error: unsupported platform.'; exit 2; ;;
 esac;
 
-print_blue() {
+PROMPT() {
     local str="$1"
-    echo -e "\e[34m$str\e[0m"
+    echo -e "\e[1;34m$str\e[0m"  # Using bold blue for a lighter effect
 }
 
 usrname=$(whoami)
@@ -22,7 +22,7 @@ fi
 $sudo_prefix $installCMD update && $sudo_prefix $installCMD install -y vim git wget tmux zsh vim-gtk
 
 ### Config Vim
-print_blue "Config Vim ..."
+PROMPT "Config Vim ..."
 if [ ! -d "~/.vim_runtime" ]; then
     # git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
     cp -r 3rdparty/vimrc ~/.vim_runtime
@@ -31,7 +31,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp vim/my_configs.vim ~/.vim_runtime/
 
 ### Config Tmux
-print_blue "Config Tmux ..."
+PROMPT "Config Tmux ..."
 cp tmux/.tmux.conf ~/
 tmux source-file ~/.tmux.conf
 
