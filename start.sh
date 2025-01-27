@@ -37,7 +37,14 @@ tmux source-file ~/.tmux.conf
 
 ### Config On-my-zsh
 PROMPT "Config On-my-zsh"
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+if [[ -z $ZSH_CODE_PATH && -d $ZSH_CODE_PATH ]]; then
+    cp -r $ZSH_CODE_PATH ~/.oh-my-zsh
+    cp ~/.zshrc ~/.zshrc.orig
+    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+    chsh -s $(which zsh)
+else
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
 
 ### Using 'rm -rf' safely
 alias rm='rm -i'
