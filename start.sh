@@ -37,11 +37,16 @@ tmux source-file ~/.tmux.conf
 
 ### Config On-my-zsh
 PROMPT "Config On-my-zsh"
-if [[ -z $ZSH_CODE_PATH && -d $ZSH_CODE_PATH ]]; then
+if [[ ! -z $ZSH_CODE_PATH && -d $ZSH_CODE_PATH ]]; then
+    if [[ ! -f "$ZSH_CODE_PATH/templates/zshrc.zsh-template" ]]; then
+        echo "Invalid ZSH code folder: $ZSH_CODE_PATH"
+        exit 0
+    fi
     cp -r $ZSH_CODE_PATH ~/.oh-my-zsh
     cp ~/.zshrc ~/.zshrc.orig
     cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
     chsh -s $(which zsh)
+    zsh
 else
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
