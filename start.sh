@@ -51,5 +51,9 @@ else
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
+### Config git
+$sudo_prefix pip3 install pre-commit
+$sudo_prefix npm install -g git-cz
+
 ### Using 'rm -rf' safely
 alias rm='rm -i'
